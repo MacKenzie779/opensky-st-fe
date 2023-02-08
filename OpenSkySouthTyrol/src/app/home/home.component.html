@@ -19,7 +19,7 @@
       .bgimg-1 {
         background-position: center;
         background-size: cover;
-        background-image: url("./assets/laptop.jpg");
+        background-image: url("./assets/plane3.jpg");
         /* background-color: black; */
         min-height: 100%;
       }
@@ -33,7 +33,8 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
       <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/icons8-media-96.png"><b> OpenSky ST</b></a>
+        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
+        <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-product"></i> PRODUCT</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
           <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN IN</a>
@@ -61,15 +62,15 @@
     <!-- Header with full-height image -->
     <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
       <div class="w3-display-left w3-text-white" style="padding:48px">
-        <span class="w3-jumbo w3-hide-small"><b>MediaPortal</b></span><br>
-        <span class="w3-xxxlarge w3-hide-large w3-hide-medium"><b>MediaPortal</b></span><br>
-        <span class="w3-xxlarge">The best platform to convert your media files!</span>
-        <p><a [routerLink]="['/signup']" class="w3-button w3-white w3-padding-large w3-large w3-margin-top w3-opacity w3-hover-opacity-off">Start for Free</a></p>
+        <span class="w3-jumbo "><b>OpenSky SouthTyrol</b></span><br>
+        <div class="w3-xxxlarge w3-hide-large w3-hide-medium"><br><br><br></div>
+        <span class="w3-xxlarge">Your window to the sky!</span>
+        <p class="try_button_p"><a [routerLink]="['/signup']" class="w3-button w3-white w3-padding-large w3-large w3-margin-top try_button"><img src="./assets/icons8-airplane-take-off.gif" alt="icons8-airplane-take-off.gif"> Try for FREE</a></p>
       </div>
       <div class="w3-display-bottomright w3-text-grey" style="padding:24px 48px">
-        <a href="https://www.facebook.com/MediaPortal"><span class="w3-xxxlarge fa fa-facebook-official w3-hover-opacity w3-large"></span></a>
+        <a href="https://www.facebook.com/OpenSky"><span class="w3-xxxlarge fa fa-facebook-official w3-hover-opacity w3-large"></span></a>
         <span>&NonBreakingSpace;</span>
-        <a href="https://www.instagram.com/MediaPortal"><span class="w3-xxxlarge fa fa-instagram w3-hover-opacity"></span></a>
+        <a href="https://www.instagram.com/OpenSky"><span class="w3-xxxlarge fa fa-instagram w3-hover-opacity"></span></a>
       </div>
     </header>
   </body>
