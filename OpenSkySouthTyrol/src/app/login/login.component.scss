@@ -1,0 +1,48 @@
+.logindiv {
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon  {
+  height: 25px;
+  align-self: center;
+}
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}
+

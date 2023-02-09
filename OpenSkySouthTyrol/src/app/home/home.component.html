@@ -34,13 +34,12 @@
     <div class="w3-top">
       <div class="w3-bar w3-white w3-card" id="myNavbar">
         <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
-        <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-product"></i> PRODUCT</a>
+        <a [routerLink]="['/product']" routerLinkActive="active_route" class="w3-bar-item w3-button"> PRODUCT</a>
+        <a [routerLink]="['/about']" routerLinkActive="active_route" class="w3-bar-item w3-button"> ABOUT</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-          <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN IN</a>
           <a [routerLink]="['/signup']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-user"></i> SIGN UP</a>
-          <a [routerLink]="['/pricing']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
-          <a [routerLink]="['/contact']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+          <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> LOGIN</a>
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -53,10 +52,10 @@
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
       <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">close ×</a>
-      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN IN</a>
+      <a [routerLink]="['/product']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRODUCT</a>
+      <a [routerLink]="['/about']" (click)="close_sidebar()" class="w3-bar-item w3-button">ABOUT</a>
       <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN UP</a>
-      <a [routerLink]="['/pricing']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRICING</a>
-      <a [routerLink]="['/contact']" (click)="close_sidebar()" class="w3-bar-item w3-button">CONTACT</a>
+      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGIN</a>
     </nav>
 
     <!-- Header with full-height image -->
