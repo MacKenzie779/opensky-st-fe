@@ -1,6 +1,6 @@
 # OpenSky SouthTyrol
 
-## Structure
+## Structure of the Project
 
 Homepage
 
