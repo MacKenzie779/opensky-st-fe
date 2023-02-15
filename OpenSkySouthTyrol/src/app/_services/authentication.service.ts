@@ -17,7 +17,7 @@ export class AuthenticationService {
   public currentUser: Observable<User>;
 
   constructor(private http: HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser') ?? '{ "id" : 0}'));
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('42a6fca59807785cbfee8eda242b16d2f44aea29c33e0bb9285a101b605c4c97304db977f748e4a22f7c0080d6dcba6213b9609facb541a926d381851503a875') ?? '{ "id" : 0}'));
     this.currentUser = this.currentUserSubject.asObservable();
   }
 
@@ -28,7 +28,7 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
     return this.http.post<any>(`${environment.apiUrl}/user/login`, { username, password }).pipe(map(user => {
-      localStorage.setItem('currentUser', JSON.stringify(user));
+      localStorage.setItem('42a6fca59807785cbfee8eda242b16d2f44aea29c33e0bb9285a101b605c4c97304db977f748e4a22f7c0080d6dcba6213b9609facb541a926d381851503a875', JSON.stringify(user));
       this.currentUserSubject.next(user);
       return user;
     }));
@@ -36,9 +36,8 @@ export class AuthenticationService {
 
   logout(username: string) {
     // remove user from local storage to log user out
-    this.http.post<any>(`${environment.apiUrl}/user/logout`, {username}).subscribe(resp => {
-    });
-    localStorage.removeItem('currentUser');
+    this.http.post<any>(`${environment.apiUrl}/user/logout`, {username}).subscribe();
+    localStorage.removeItem('42a6fca59807785cbfee8eda242b16d2f44aea29c33e0bb9285a101b605c4c97304db977f748e4a22f7c0080d6dcba6213b9609facb541a926d381851503a875');
     this.currentUserSubject.next(new User);
   }
 

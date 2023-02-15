@@ -1,12 +1,17 @@
 .logindiv {
-  max-width: 50%;
+  mat-card {
+    width: 350px;
+  }
   display: flex;
   justify-content: center;
 }
 
-.mat-form-field {
-  width: 100%;
-  min-width: 300px;
+mat-form-field {
+  width: 300px;
+}
+
+mat-card-title {
+  margin-top: 20px;
 }
 
 mat-card-title,

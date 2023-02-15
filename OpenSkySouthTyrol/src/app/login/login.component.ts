@@ -22,6 +22,7 @@ export class LoginComponent {
   constructor( private formBuilder: FormBuilder, private route: ActivatedRoute,
     private router: Router, private authenticationService: AuthenticationService ) {
     // redirect to dashboard if already logged in
+    console.log(this.authenticationService.currentUserValue);
     if (this.authenticationService.currentUserValue.id > 0) {
       this.router.navigate(['/convert/dashboard']);
     }

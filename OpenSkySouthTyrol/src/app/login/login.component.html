@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>MediaPortal</title>
+    <title>OpenSky</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -19,7 +19,8 @@
       .bgimg-1 {
         background-position: center;
         background-size: cover;
-        background-image: url("./assets/laptop.jpg");
+        background-image: url("./assets/plane3.jpg");
+        /* background-color: black; */
         min-height: 100%;
         display: flex;
         align-items: center;
@@ -29,20 +30,19 @@
       .w3-bar .w3-button {
         padding: 16px;
       }
-
     </style>
   </head>
   <body>
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
       <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/icons8-media-96.png"><b> MEDIA-PORTAL</b></a>
+        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
+        <a [routerLink]="['/product']" routerLinkActive="active_route" class="w3-bar-item w3-button"> PRODUCT</a>
+        <a [routerLink]="['/about']" routerLinkActive="active_route" class="w3-bar-item w3-button"> ABOUT</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-          <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> SIGN IN</a>
           <a [routerLink]="['/signup']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-user"></i> SIGN UP</a>
-          <a [routerLink]="['/pricing']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> PRICING</a>
-          <a [routerLink]="['/contact']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>
+          <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> LOGIN</a>
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -54,17 +54,17 @@
 
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
-      <a href="javascript:void(0)" (click)="close_sidebar()" class="onhover w3-bar-item w3-button w3-large w3-padding-16">close ×</a>
-      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button active_route_mobile">SIGN IN</a>
+      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16">close ×</a>
+      <a [routerLink]="['/product']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRODUCT</a>
+      <a [routerLink]="['/about']" (click)="close_sidebar()" class="w3-bar-item w3-button">ABOUT</a>
       <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN UP</a>
-      <a [routerLink]="['/pricing']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRICING</a>
-      <a [routerLink]="['/contact']" (click)="close_sidebar()" class="w3-bar-item w3-button">CONTACT</a>
+      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGIN</a>
     </nav>
 
     <!-- Header with full-height image -->
     <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
       <div class="logindiv">
-        <mat-card >
+        <mat-card>
           <mat-card-title>Login</mat-card-title>
           <mat-card-content>
             <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
