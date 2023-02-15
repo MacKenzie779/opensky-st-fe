@@ -1,0 +1,47 @@
+.logindiv {
+  mat-card {
+    width: 350px;
+  }
+  display: flex;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 300px;
+}
+
+mat-card-title {
+  margin-top: 20px;
+}
+
+mat-card-title,
+mat-card-content {
+  display: flex;
+  justify-content: center;
+}
+
+.error {
+  padding: 16px;
+  width: 300px;
+  color: white;
+  background-color: red;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icon  {
+  height: 25px;
+  align-self: center;
+}
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}
