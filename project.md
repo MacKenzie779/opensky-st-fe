@@ -30,7 +30,7 @@ Client area:
 
 ## Backend
 
-- Python?
+- Python
 
 - Login/Register
 
