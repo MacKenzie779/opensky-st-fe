@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenSky</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+      body, html {
+        height: 100%;
+        line-height: 1.8;
+      }
+
+      /* Full height image header */
+      .bgimg-1 {
+        /* background-position: center; */
+        /* background-size: cover; */
+        /* background-image: url("./assets/plane3.jpg"); */
+        /* background-color: black; */
+        min-height: 100%;
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+      }
+
+      .w3-bar .w3-button {
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
+        <a [routerLink]="['/product']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> PRODUCT</a>
+        <a [routerLink]="['/about']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> ABOUT</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a [routerLink]="['/signup']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-user"></i> SIGN UP</a>
+          <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> LOGIN</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" (click)="open_sidebar()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
+      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16" style="color:red;"><i class="fa fa-close"></i></a>
+      <a [routerLink]="['/product']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRODUCT</a>
+      <a [routerLink]="['/about']" (click)="close_sidebar()" class="w3-bar-item w3-button">ABOUT</a>
+      <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN UP</a>
+      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGIN</a>
+    </nav>
+
+    <!-- Header with full-height image -->
+    <header class="bgimg-1 w3-display-container w3-grayscale-min w3-light-grey" id="home">
+      <!-- About Section -->
+      <div class="w3-container" style="padding:80px 16px; padding-bottom: 0px;" id="about">
+        <h1 class="w3-center w3-xxxlarge">ABOUT THE PRODUCT</h1>
+        <h2 class="w3-center w3-xlarge">Key features of OpenSky-SouthTyrol</h2>
+        <hr class="w3-border-bottom w3-border-thick">
+        <div style="margin-top:50px; margin-bottom: 50px;">
+          <p class="w3-cente w3-large">
+            Introducing the ultimate web-app for aviation enthusiasts and travelers alike - our latest creation that allows you to track all airplanes flying over South Tyrol in real-time!
+          </p>
+          <p class="w3-cente w3-large">
+            With this amazing web-app, you can stay up-to-date with all the flight activity in the region, at any time and from anywhere. No more guessing or relying on outdated flight schedules, you can now see all the planes flying overhead, along with useful information about their flight company, start and destination airports, and more.
+          </p>
+          <p class="w3-cente w3-large">
+            Whether you're a curious aviation enthusiast or a frequent traveler, this web-app is the perfect tool to keep you informed and in the know. You can access the service from any device - desktop, tablet, or mobile - and enjoy a seamless and responsive experience that lets you stay connected with the skies above.
+          </p>
+          <p class="w3-cente w3-large">
+            Best of all, our web-app is completely free, with no hidden costs or subscription fees. You can start using it right away and get instant access to all the information you need about the airplanes flying over South Tyrol.
+          </p>
+          <p class="w3-cente w3-large">
+            So why wait? Head over to the signup now and start tracking those planes!
+          </p>
+        </div>
+        <hr class="w3-border-bottom w3-border-thick">
+        <div class="w3-row-padding w3-center" style="margin-top:60px">
+          <div class="w3-third">
+            <i class="fa fa-mobile-phone w3-jumbo"></i>
+            <p class="w3-large">
+              <b>Responsive design</b>
+              <br>
+              Use the app everywhere
+            </p>
+          </div>
+          <div class="w3-third">
+            <i class="fa fa-clock-o w3-jumbo"></i>
+            <p class="w3-large">
+              <b>Realtime data</b>
+              <br>
+              All data is feched in realtime from stable APIs
+            </p>
+          </div>
+          <div class="w3-third">
+            <i class="fa fa-dollar w3-jumbo"></i>
+            <p class="w3-large">
+              <b>Free to use</b>
+              <br>
+              No hidden costs or subscription fees
+            </p>
+          </div>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
