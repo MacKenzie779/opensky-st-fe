@@ -35,7 +35,7 @@
       <div class="w3-bar w3-white w3-card" id="myNavbar">
         <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
         <a [routerLink]="['/product']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> PRODUCT</a>
-        <a [routerLink]="['/about']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> ABOUT</a>
+        <a [routerLink]="['/impressum']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> IMPRESSUM</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
           <a [routerLink]="['/signup']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-user"></i> SIGN UP</a>
@@ -53,7 +53,7 @@
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
       <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16" style="color:red;"><i class="fa fa-close"></i></a>
       <a [routerLink]="['/product']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRODUCT</a>
-      <a [routerLink]="['/about']" (click)="close_sidebar()" class="w3-bar-item w3-button">ABOUT</a>
+      <a [routerLink]="['/impressum']" (click)="close_sidebar()" class="w3-bar-item w3-button">IMPRESSUM</a>
       <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN UP</a>
       <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGIN</a>
     </nav>

@@ -24,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LogoutComponent } from './logout/logout.component';
 import { ProductComponent } from './product/product.component';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { ProductComponent } from './product/product.component';
     LoginComponent,
     SignUpComponent,
     LogoutComponent,
-    ProductComponent
+    ProductComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenSky</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+      body, html {
+        height: 100%;
+        line-height: 1.8;
+      }
+
+      /* Full height image header */
+      .bgimg-1 {
+        /* background-position: center; */
+        /* background-size: cover; */
+        /* background-image: url("./assets/plane3.jpg"); */
+        /* background-color: black; */
+        min-height: 100%;
+        /* display: flex; */
+        /* align-items: center; */
+        /* justify-content: center; */
+      }
+
+      .w3-bar .w3-button {
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
+        <a [routerLink]="['/product']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> PRODUCT</a>
+        <a [routerLink]="['/impressum']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> IMPRESSUM</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a [routerLink]="['/signup']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-user"></i> SIGN UP</a>
+          <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> LOGIN</a>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" (click)="open_sidebar()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
+      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16" style="color:red;"><i class="fa fa-close"></i></a>
+      <a [routerLink]="['/product']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRODUCT</a>
+      <a [routerLink]="['/impressum']" (click)="close_sidebar()" class="w3-bar-item w3-button">IMPRESSUM</a>
+      <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN UP</a>
+      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGIN</a>
+    </nav>
+
+    <!-- Header with full-height image -->
+    <header class="bgimg-1 w3-display-container w3-grayscale-min w3-light-grey" id="home">
+      <!-- About Section -->
+      <div class="w3-container" style="padding:80px 16px; padding-bottom: 0px;" id="about">
+        <h1 class="w3-center w3-xxxlarge">LEGAL NOTICE / IMPRESSUM</h1>
+        <hr class="w3-border-bottom w3-border-thick">
+        <div style="margin-top:30px; margin-bottom: 50px;">
+          <h3>Imprint / Angaben gemäß § 5 TMG</h3>
+          <p>
+            Carl Monn <br>
+            CEO <br>
+            Monn Street 38 <br>
+            14532 Monnolo <br>
+          </p>
+          <hr class="w3-border-bottom w3-border-thick">
+          <h3>Contact / Kontakt</h3>
+          <p>
+            Telephone/Telefon: 03320386441 <br>
+            E-mail: carl@monn.com
+          </p>
+          <hr class="w3-border-bottom w3-border-thick">
+          <h3>Responsible for content / Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+          <p>
+            Carl Monn <br>
+            Monn Street 38 <br>
+            14532 Monnolo <br>
+            Germany
+          </p>
+          <hr class="w3-border-bottom w3-border-thick">
+          <h3>Disclaimer /Haftungsausschluss</h3>
+          <p>
+            <b>Liability for content</b> <br>
+            The content of this site has been created with the greatest of care. I cannot, however, guarantee that the information in it is accurate, complete or up-to-date. As a service provider I am responsible under Section 6(1) of the German Media Services Inter-State Agreement and Section 8(1) of the German Teleservices Act for my own content on this site. Service providers are not however obliged to monitor third party information transmitted or stored on their site by them or to look for circumstances which may suggest a violation of the law. This does not affect my statutory obligations to remove or block the use of information. My liability in such cases shall however commence from the time I become aware of an actual violation. On becoming aware of such violations I shall remove this content immediately.
+          </p>
+          <p>
+            <b>Haftung für Inhalte</b> <br>
+            Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte kann ich jedoch keine Gewähr übernehmen. Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.
+          </p>
+          <hr>
+          <p>
+            <b>Liability for links</b><br>
+            This website contains links to external third-party websites, over the content of which I have no control. I cannot, therefore, make any guarantees regarding this third-party content. Responsibility for the content of linked sites lies solely with the provider or operator of the site concerned. All linked sites were checked for possible violations of the law when they were linked to mine. At that time I was not aware of any content which may violate the law. However, I cannot be expected to monitor the content of linked sites on an ongoing basis unless I have reason to suspect a violation of the law. On becoming aware of such a violation I shall remove the respective link immediately.
+          </p>
+          <p>
+            <b>Haftung für Links</b><br>
+            Diese Webseite enthält Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.
+          </p>
+          <hr>
+          <p>
+            <b>Copyright</b><br>
+            The operator of this site makes every effort to respect the copyrights of outside parties and to employ his own material and material in the public domain. All content and material on this site created by the site operator is governed by German copyright law.  Downloads and copies of this site may be made for private, non-commercial use only. Reproduction, processing, distribution and any form of exploitation beyond that permitted by copyright law requires the written consent of the author or creator concerned. Contributions by third parties are identified as such. Should anyone become aware of a possible copyright infringement, I kindly request that you inform me of such. Upon becoming aware of such a violation I shall remove the respective content immediately.
+          </p>
+          <p>
+            <b>Urheberrecht</b><br>
+            Die durch der Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+          </p>
+          <hr>
+          <p>
+            <b>Data protection</b><br>
+            As a rule the use of this website is possible without providing any personally relevant data. Any provision of personal data (e.g. name, address or email addresses) occurs entirely on a voluntary basis. These data will not be provided to any third parties without the user's express approval. Be aware that the transmission of data via the internet (e.g. communication by email) is subject to security gaps. Complete protection of data from unauthorized access by third parties is not possible. The use of contact details published under the statutory requirement to provide acknowledgements by third parties for the purpose of the transmission of unsolicited advertising and informational material is expressly opposed. The site operator expressly reserves the right to take legal action against the unsolicited mailing of advertising information by way of spamming or similar.
+          </p>
+          <p>
+            <b>Datenschutz</b> <br>
+            Die Nutzung dieser Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf diesen Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre ausdrückliche Zustimmung nicht an Dritte weitergegeben. Ich weise darauf hin, dass die Datenübertragung im Internet (z.B. bei der Kommunikation per E-Mail) Sicherheitslücken aufweisen kann. Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich. Der Nutzung von im Rahmen der Impressumspflicht veröffentlichten Kontaktdaten durch Dritte zur Übersendung von nicht ausdrücklich angeforderter Werbung und Informationsmaterialien wird hiermit ausdrücklich widersprochen. Der Betreiber der Seiten behält sich ausdrücklich rechtliche Schritte im Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.
+          </p>
+          <hr class="w3-border-bottom w3-border-thick">
+          <p class="w3-small">
+            Imprint and disclaimer produced with <a href="https://www.e-recht24.de/impressum-generator.html">Impressum-Generator Freiberufler from eRecht24</a><br>
+            Impressum und Haftungsausschluss erstellt mit dem <a href="https://www.e-recht24.de/impressum-generator.html">Impressum-Generator Freiberufler von eRecht24</a>
+          </p>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
+
