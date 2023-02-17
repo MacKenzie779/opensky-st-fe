@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MustMatch } from '@app/_helpers';
+import { User } from '@app/_models';
 import { AuthenticationService } from '@app/_services/authentication.service';
-import { first } from 'rxjs';
 
 @Component({
   selector: 'app-sign-up',
@@ -14,8 +14,6 @@ export class SignUpComponent {
   mySidebar:any = null;
   //login form in template
   loginForm!: FormGroup;
-  loading = false;
-  submitted = false;
   //errors on login, shown to the user
   error:any = '';
 
@@ -23,8 +21,8 @@ export class SignUpComponent {
   constructor( private formBuilder: FormBuilder, private route: ActivatedRoute,
     private router: Router, private authenticationService: AuthenticationService ) {
     // redirect to dashboard if already logged in
-    if (this.authenticationService.currentUserValue.token.length > 0) {
-      this.router.navigate(['/convert/dashboard']);
+    if (this.authenticationService.currentUserValue?.token?.length > 0) {
+      this.router.navigate(['/dashboard']);
     }
   }
 
@@ -46,21 +44,30 @@ export class SignUpComponent {
   }
 
   onSubmit() {
-    this.authenticationService.signup(this.field['username'].value, this.field['email'].value, this.field['password'].value, ).pipe(first()).subscribe({
-      next: () => {
-        this.authenticationService.login(this.field['username'].value, this.field['password'].value).pipe(first()).subscribe({
-          next: () => {
-            // get return url from route parameters or default to '/dashboard'
-            const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/convert';
-            this.router.navigate([returnUrl]);
-          }
-        });
-      },
-      error: error => {
-        this.error = error;
-        this.loading = false;
+    this.authenticationService.signup(this.field['username'].value, this.field['email'].value, this.field['password'].value).subscribe(
+      resp => {
+        if (resp.response_code != 200) {
+          this.error = resp.payload;
+        }
+        else {
+          this.authenticationService.login(this.field['username'].value, this.field['password'].value).subscribe(
+            resp => {
+              if (resp.response_code == 200) {
+                // creating user object
+                let user = new User();
+                user.token = resp.payload;
+                user.username = this.field['username'].value;
+                // setting user in local storage over auth service
+                this.authenticationService.currentUserValue = user;
+                // redirect
+                const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/dashboard';
+                this.router.navigate([returnUrl]);
+              }
+            }
+          )
+        }
       }
-    });
+    );
   }
 
   open_sidebar(): void {

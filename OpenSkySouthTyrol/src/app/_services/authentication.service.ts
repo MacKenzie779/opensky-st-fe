@@ -44,10 +44,13 @@ export class AuthenticationService {
     return this.http.post<ApiResponse>(environment.apiUrl + "/logoff", body, {headers});
   }
 
+  //signup
   signup(username: string, email:string, password: string) {
-    return this.http.post<any>(`${environment.apiUrl}/user/add`, { username, email, password }).pipe(map(user => {
-      return user;
-    }));
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    let body = "user=" + username + "&pass=" + password;
+    return this.http.post<ApiResponse>(environment.apiUrl + "/createuser", body, {headers});
   }
 
   changepwd(username:string, oldpwd:string, newpwd:string) {

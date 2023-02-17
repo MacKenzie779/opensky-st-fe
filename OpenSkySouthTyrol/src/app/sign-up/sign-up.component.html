@@ -71,23 +71,29 @@
               <p>
                 <mat-form-field>
                   <input matInput type="text" matInput placeholder="Username" formControlName="username">
+                  <mat-error>* required</mat-error>
                 </mat-form-field>
               </p>
               <p>
                 <mat-form-field>
                   <input matInput type="text" matInput placeholder="Email" formControlName="email">
+                  <mat-error *ngIf="field['email']?.hasError('required')">* required</mat-error>
+                  <mat-error *ngIf="field['email']?.hasError('email')">* Invalid email</mat-error>
                 </mat-form-field>
               </p>
 
               <p>
                 <mat-form-field>
                   <input matInput type="password" matInput placeholder="Password" formControlName="password">
+                  <mat-error *ngIf="field['password']?.hasError('required')">* required</mat-error>
                 </mat-form-field>
               </p>
 
               <p>
                 <mat-form-field>
                   <input matInput type="password" matInput placeholder="Repeat Password" formControlName="passwordRepeat">
+                  <mat-error *ngIf="field['passwordRepeat']?.hasError('required')">* required</mat-error>
+                  <mat-error *ngIf="field['passwordRepeat']?.hasError('mustMatch')">passwords do not match</mat-error>
                 </mat-form-field>
               </p>
 
