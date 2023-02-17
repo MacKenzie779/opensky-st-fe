@@ -20,7 +20,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     return next.handle(request).pipe(catchError(err => {
       // auto logout if 401 response returned from api
       if (err.status === 401) {
-        this.authenticationService.logout(this.currentUser.username);
+        this.authenticationService.logout();
         location.reload();
       }
       //sets error text

@@ -26,6 +26,7 @@ export class AuthenticationService {
     localStorage.setItem(environment.hashObject, JSON.stringify(user));
   }
 
+  // login
   login(username: string, password: string):Observable<ApiResponse> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded'
@@ -34,10 +35,13 @@ export class AuthenticationService {
     return this.http.post<ApiResponse>(`${environment.apiUrl}/auth`, body, {headers});
   }
 
-  logout(username: string) {
-    // remove user from local storage to log user out
-    this.http.post<any>(`${environment.apiUrl}/user/logout`, {username}).subscribe();
-    localStorage.removeItem(environment.hashObject);
+  // logout
+  logout() {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    let body = "authkey="+this.currentUserValue?.token;
+    return this.http.post<ApiResponse>(environment.apiUrl + "/logoff", body, {headers});
   }
 
   signup(username: string, email:string, password: string) {

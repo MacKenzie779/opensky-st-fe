@@ -1,3 +1,4 @@
+import { environment } from '@environments/environment';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '@app/_models';
@@ -21,8 +22,15 @@ export class LogoutComponent {
   }
 
   logout() {
-    this.authenticationService.logout(this.currentUser.username);
-    this.router.navigate(['/login']);
+    this.authenticationService.logout().subscribe(resp => {
+      if (resp.response_code != 200) {
+        console.log(resp);
+      }
+      else {
+        localStorage.removeItem(environment.hashObject);
+        this.router.navigate(['/login']);
+      }
+    });
   }
 
 }
