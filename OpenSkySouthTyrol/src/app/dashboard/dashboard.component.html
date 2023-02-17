@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
       body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -33,19 +34,19 @@
     <!-- Navbar (sit on top) -->
     <div class="w3-top">
       <div class="w3-bar w3-white w3-card" id="myNavbar">
-        <a [routerLink]="['']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
-        <a [routerLink]="['/product']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> PRODUCT</a>
-        <a [routerLink]="['/impressum']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> IMPRESSUM</a>
+        <a [routerLink]="['/dashboard']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
+        <a [routerLink]="['/departure']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"><i class="fa-solid fa-plane-departure"></i> ARRIVAL/DEPARTURES</a>
+        <a [routerLink]="['/map']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"><i class="fa-solid fa-map-location-dot"></i> MAP</a>
+        <a [routerLink]="['/realtime']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"><i class="fa-solid fa-clock"></i> REALTIME</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-          <a class="w3-bar-item w3-button" (click)="toggleMenu()" >{{authService.currentUserValue.username}}</a>
-          <div *ngIf="menu" class="w3-dropdown-content w3-bar-block w3-card-4 w3-show" style="right: 0; top: 59px; max-width: 200px">
-            <a (click)="toggleMenu()" class="w3-bar-item w3-button">Change Password</a>
-            <a (click)="toggleMenu()" class="w3-bar-item w3-button">Logout</a>
+          <a class="w3-bar-item w3-button" (click)="toggleMenu()" ><i class="fa fa-user"></i> {{authService.currentUserValue.username}}</a>
+          <div *ngIf="menu" class="w3-dropdown-content w3-bar-block w3-card-4 w3-show" style="right: 0; top: 59px;">
+            <a (click)="toggleMenu()" [routerLink]="['/changepwd']" class="w3-bar-item w3-button"><i class="fa-solid fa-key"></i> CHANGE PASSWORD</a>
+            <a (click)="toggleMenu()" [routerLink]="['/logout']" class="w3-bar-item w3-button"><i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a>
           </div>
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
-
         <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" (click)="open_sidebar()">
           <i class="fa fa-bars"></i>
         </a>
@@ -55,10 +56,11 @@
     <!-- Sidebar on small screens when clicking the menu icon -->
     <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
       <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16" style="color:red;"><i class="fa fa-close"></i></a>
-      <a [routerLink]="['/product']" (click)="close_sidebar()" class="w3-bar-item w3-button">PRODUCT</a>
-      <a [routerLink]="['/impressum']" (click)="close_sidebar()" class="w3-bar-item w3-button">IMPRESSUM</a>
-      <a [routerLink]="['/signup']" (click)="close_sidebar()" class="w3-bar-item w3-button">SIGN UP</a>
-      <a [routerLink]="['/login']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGIN</a>
+      <a [routerLink]="['/departure']" (click)="close_sidebar()" class="w3-bar-item w3-button">ARRIVAL/DEPARTURES</a>
+      <a [routerLink]="['/map']" (click)="close_sidebar()" class="w3-bar-item w3-button">MAP</a>
+      <a [routerLink]="['/realtime']" (click)="close_sidebar()" class="w3-bar-item w3-button">REALTIME</a>
+      <a [routerLink]="['/changepwd']" (click)="close_sidebar()" class="w3-bar-item w3-button">CHANGE PASSWORD</a>
+      <a [routerLink]="['/logout']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGOUT</a>
     </nav>
 
     <!-- Header with full-height image -->
