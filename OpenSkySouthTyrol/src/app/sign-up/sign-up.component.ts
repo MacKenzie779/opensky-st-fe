@@ -23,7 +23,7 @@ export class SignUpComponent {
   constructor( private formBuilder: FormBuilder, private route: ActivatedRoute,
     private router: Router, private authenticationService: AuthenticationService ) {
     // redirect to dashboard if already logged in
-    if (this.authenticationService.currentUserValue.id > 0) {
+    if (this.authenticationService.currentUserValue.token.length > 0) {
       this.router.navigate(['/convert/dashboard']);
     }
   }

@@ -22,9 +22,6 @@
         background-image: url("./assets/plane3.jpg");
         /* background-color: black; */
         min-height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
       }
 
       .w3-bar .w3-button {
@@ -41,8 +38,11 @@
         <a [routerLink]="['/impressum']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"> IMPRESSUM</a>
         <!-- Right-sided navbar links -->
         <div class="w3-right w3-hide-small">
-          <a [routerLink]="['/signup']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-user"></i> SIGN UP</a>
-          <a [routerLink]="['/login']" routerLinkActive="active_route" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> LOGIN</a>
+          <a class="w3-bar-item w3-button" (click)="toggleMenu()" >{{authService.currentUserValue.username}}</a>
+          <div *ngIf="menu" class="w3-dropdown-content w3-bar-block w3-card-4 w3-show" style="right: 0; top: 59px; max-width: 200px">
+            <a (click)="toggleMenu()" class="w3-bar-item w3-button">Change Password</a>
+            <a (click)="toggleMenu()" class="w3-bar-item w3-button">Logout</a>
+          </div>
         </div>
         <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
@@ -63,36 +63,19 @@
 
     <!-- Header with full-height image -->
     <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
-      <div class="logindiv">
-        <mat-card>
-          <mat-card-title>Login</mat-card-title>
-          <mat-card-content>
-            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-              <p>
-                <mat-form-field>
-                  <input matInput type="text" matInput placeholder="Username" formControlName="username">
-                  <mat-error>* Required</mat-error>
-                </mat-form-field>
-              </p>
-
-              <p>
-                <mat-form-field>
-                  <input matInput type="password" matInput placeholder="Password" formControlName="password">
-                  <mat-error>* Required</mat-error>
-                </mat-form-field>
-              </p>
-
-              <p *ngIf="error" class="error">
-                {{ error }}
-              </p>
-
-              <div class="button">
-                <button type="submit" mat-button [disabled]="!loginForm.valid">Login</button>
-              </div>
-            </form>
-          </mat-card-content>
-        </mat-card>
+      <div class="w3-display-left w3-text-white" style="padding:48px">
+        <span class="w3-jumbo "><b>OpenSky SouthTyrol</b></span><br>
+        <div class="w3-xxxlarge w3-hide-large w3-hide-medium"><br><br><br></div>
+        <span class="w3-xxlarge">Your window to the sky!</span>
+        <p class="try_button_p"><a [routerLink]="['/signup']" class="w3-button w3-white w3-padding-large w3-large w3-margin-top try_button"><img src="./assets/icons8-airplane-take-off.gif" alt="icons8-airplane-take-off.gif"> Try for FREE</a></p>
+      </div>
+      <div class="w3-display-bottomright w3-text-grey" style="padding:24px 48px">
+        <a href="https://www.instagram.com/OpenSky"><span class="w3-xxxlarge fa fa-instagram w3-hover-opacity"></span></a>
+        <span>&NonBreakingSpace;</span>
+        <a href="https://www.twitter.com/OpenSky"><span class="w3-xxxlarge fa fa-twitter w3-hover-opacity"></span></a>
       </div>
     </header>
   </body>
 </html>
+
+

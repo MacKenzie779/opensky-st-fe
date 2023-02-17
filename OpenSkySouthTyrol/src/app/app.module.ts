@@ -25,6 +25,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { LogoutComponent } from './logout/logout.component';
 import { ProductComponent } from './product/product.component';
 import { AboutComponent } from './about/about.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { AboutComponent } from './about/about.component';
     SignUpComponent,
     LogoutComponent,
     ProductComponent,
-    AboutComponent
+    AboutComponent,
+    DashboardComponent,
+    ChangePasswordComponent
   ],
   imports: [
     BrowserModule,
