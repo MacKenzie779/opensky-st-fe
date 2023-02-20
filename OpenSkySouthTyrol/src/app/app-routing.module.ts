@@ -1,3 +1,4 @@
+import { DeparturesComponent } from './departures/departures.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutComponent } from './about/about.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: "logout", component: LogoutComponent },
   { path: "changepwd", component: ChangePasswordComponent },
   { path: "map", component: DashboardComponent },
-  { path: "departure", component: DashboardComponent },
+  { path: "departure", component: DeparturesComponent },
+  { path: "realtime", component: DashboardComponent },
   { path: "**", redirectTo: "/home", pathMatch: "full" }
 ];
 

@@ -27,6 +27,7 @@ import { ProductComponent } from './product/product.component';
 import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { DeparturesComponent } from './departures/departures.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
     ProductComponent,
     AboutComponent,
     DashboardComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    DeparturesComponent
   ],
   imports: [
     BrowserModule,
