@@ -18,6 +18,8 @@ const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "logout", component: LogoutComponent },
   { path: "changepwd", component: ChangePasswordComponent },
+  { path: "map", component: DashboardComponent },
+  { path: "departure", component: DashboardComponent },
   { path: "**", redirectTo: "/home", pathMatch: "full" }
 ];
 

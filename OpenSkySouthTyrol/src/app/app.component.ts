@@ -1,3 +1,4 @@
+import { UrlService } from './_services/url.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'OpenSkySouthTyrol';
+
+  constructor(private url:UrlService) {}
 }

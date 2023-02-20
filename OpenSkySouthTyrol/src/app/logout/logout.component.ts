@@ -22,14 +22,9 @@ export class LogoutComponent {
   }
 
   logout() {
-    this.authenticationService.logout().subscribe(resp => {
-      if (resp.response_code != 200) {
-        console.log(resp);
-      }
-      else {
-        localStorage.removeItem(environment.hashObject);
-        this.router.navigate(['/login']);
-      }
+    this.authenticationService.logout().subscribe( _ => {
+      localStorage.removeItem(environment.hashObject);
+      this.router.navigate(['/login']);
     });
   }
 
