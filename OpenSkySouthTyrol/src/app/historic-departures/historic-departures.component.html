@@ -67,7 +67,7 @@
     <header class="bgimg-1 w3-display-container w3-grayscale-min w3-light-grey" id="home">
       <div class="w3-container" style="padding:80px 16px; padding-bottom: 0px;" id="about">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px; margin-bottom: 30px;">
-          <h1 style="margin: 0;">Scheduled flights from/to Bolzano airport</h1>
+          <h1 style="margin: 0;">Historic flights from/to Bolzano airport</h1>
           <select class="w3-select select" name="option" [(ngModel)]="results" (change)="loadResults()">
             <option value="5">Show 5 results</option>
             <option value="10">Show 10 results</option>
@@ -132,10 +132,11 @@
       </div>
     </header>
     <div class="buttondiv">
-      <button class="w3-button w3-white w3-large try_button" [routerLink]="['/departure/history']" >Historic flights <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="w3-button w3-white w3-large try_button" [routerLink]="['/departure']"><i class="fa-solid fa-arrow-left"></i> Back to scheduled flights </button>
     </div>
   </body>
 </html>
+
 
 
 

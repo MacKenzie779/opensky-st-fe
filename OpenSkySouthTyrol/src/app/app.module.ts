@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 //components
 import { AppRoutingModule } from './app-routing.module';
@@ -28,6 +28,7 @@ import { AboutComponent } from './about/about.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DeparturesComponent } from './departures/departures.component';
+import { HistoricDeparturesComponent } from './historic-departures/historic-departures.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DeparturesComponent } from './departures/departures.component';
     AboutComponent,
     DashboardComponent,
     ChangePasswordComponent,
-    DeparturesComponent
+    DeparturesComponent,
+    HistoricDeparturesComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { DeparturesComponent } from './departures/departures.component';
     MatDividerModule,
     MatFormFieldModule,
     MatSelectModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    FormsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }

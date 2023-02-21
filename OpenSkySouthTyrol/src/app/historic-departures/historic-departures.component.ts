@@ -1,16 +1,14 @@
-import { ObjectSkyalpsRawdata } from './../_models/object_skyalps_rawdata';
-import { SkyalpsService } from './../_services/skyalps.service';
-import { AuthenticationService } from './../_services/authentication.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ObjectSkyalps } from '@app/_models/object_skyalps';
+import { AuthenticationService } from '@app/_services/authentication.service';
+import { SkyalpsService } from '@app/_services/skyalps.service';
 
 @Component({
-  selector: 'app-departures',
-  templateUrl: './departures.component.html',
-  styleUrls: ['./departures.component.scss']
+  selector: 'app-historic-departures',
+  templateUrl: './historic-departures.component.html',
+  styleUrls: ['./historic-departures.component.scss']
 })
-export class DeparturesComponent implements OnInit {
-
+export class HistoricDeparturesComponent {
   mySidebar:any = null;
   menu:boolean = false;
   results:number = 10;
@@ -27,9 +25,9 @@ export class DeparturesComponent implements OnInit {
     this.skyalps.getDataAsObjectArray().subscribe(data => {
       arr = data;
       let sorted = arr.sort((a,b)=> {
-        return new Date(a.rawdata.date+"T"+a.rawdata.time).getTime() - new Date(b.rawdata.date+"T"+b.rawdata.time).getTime();
+        return new Date(b.rawdata.date+"T"+b.rawdata.time).getTime() - new Date(a.rawdata.date+"T"+a.rawdata.time).getTime();
       });
-      let sheduled = sorted.filter((v) => this.filterDate(v, true));
+      let sheduled = sorted.filter((v) => this.filterDate(v, false));
       this.arrival_cache = sheduled.filter((v) => {return v.rawdata.type == "ARRIVAL"});
       this.convertTime(this.arrival_cache);
       this.departure_cache = sheduled.filter((v) => {return v.rawdata.type == "DEPARTURE"});

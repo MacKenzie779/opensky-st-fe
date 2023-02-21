@@ -1,3 +1,4 @@
+import { HistoricDeparturesComponent } from './historic-departures/historic-departures.component';
 import { DeparturesComponent } from './departures/departures.component';
 import { LogoutComponent } from './logout/logout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: "map", component: DashboardComponent },
   { path: "departure", component: DeparturesComponent },
   { path: "realtime", component: DashboardComponent },
+  { path: "departure/history", component: HistoricDeparturesComponent },
   { path: "**", redirectTo: "/home", pathMatch: "full" }
 ];
 
