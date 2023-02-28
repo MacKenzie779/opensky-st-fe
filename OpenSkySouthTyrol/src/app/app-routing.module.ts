@@ -1,3 +1,4 @@
+import { MapComponent } from './map/map.component';
 import { HistoricDeparturesComponent } from './historic-departures/historic-departures.component';
 import { DeparturesComponent } from './departures/departures.component';
 import { LogoutComponent } from './logout/logout.component';
@@ -10,6 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { AuthGuard } from './_helpers';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -17,13 +19,13 @@ const routes: Routes = [
   { path: "signup", component: SignUpComponent },
   { path: "product", component: ProductComponent },
   { path: "impressum", component: AboutComponent },
-  { path: "dashboard", component: DashboardComponent },
-  { path: "logout", component: LogoutComponent },
-  { path: "changepwd", component: ChangePasswordComponent },
-  { path: "map", component: DashboardComponent },
-  { path: "departure", component: DeparturesComponent },
-  { path: "realtime", component: DashboardComponent },
-  { path: "departure/history", component: HistoricDeparturesComponent },
+  { path: "dashboard", component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: "logout", component: LogoutComponent, canActivate: [AuthGuard] },
+  { path: "changepwd", component: ChangePasswordComponent, canActivate: [AuthGuard] },
+  { path: "departure", component: DeparturesComponent, canActivate: [AuthGuard] },
+  { path: "realtime", component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: "departure/history", component: HistoricDeparturesComponent, canActivate: [AuthGuard] },
+  { path: "map", component: MapComponent, canActivate: [AuthGuard] },
   { path: "**", redirectTo: "/home", pathMatch: "full" }
 ];
 

@@ -48,7 +48,6 @@ export class HistoricDeparturesComponent {
   }
 
   convertTime(arr:ObjectSkyalps[]) {
-    console.log(arr);
     for (let i = 0; i < arr.length; i++) {
       let time = new Date(arr[i].rawdata.date+"T"+arr[i].rawdata.time);
       time.setHours(time.getHours()+1);

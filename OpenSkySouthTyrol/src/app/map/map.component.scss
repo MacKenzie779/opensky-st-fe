@@ -1,0 +1,68 @@
+.icon  {
+  height: 25px;
+  align-self: center;
+}
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}
+
+.try_button_p {
+  margin-top: 60px;
+}
+
+.try_button {
+  border-radius: 15px;
+  border: solid 3px #A362BB;
+}
+
+.headerblock {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+.threeButtons {
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+
+.departure {
+  background-color: #E4C200;
+  height: 300px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  border: 0px;
+}
+
+.map {
+  background-color: #33cc33;
+  height: 300px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  border: 0px;
+}
+
+.realtime {
+  background-color: lightblue;
+  height: 300px;
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
+  border: 0px;
+}
+
+#map {
+  position: absolute;
+  top: 75px;
+  bottom: 15px;
+  right: 15px;
+  left: 15px;
+}

@@ -29,6 +29,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { DeparturesComponent } from './departures/departures.component';
 import { HistoricDeparturesComponent } from './historic-departures/historic-departures.component';
+import { MapComponent } from './map/map.component';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { HistoricDeparturesComponent } from './historic-departures/historic-depa
     DashboardComponent,
     ChangePasswordComponent,
     DeparturesComponent,
-    HistoricDeparturesComponent
+    HistoricDeparturesComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
