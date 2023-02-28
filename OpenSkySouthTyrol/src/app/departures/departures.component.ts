@@ -13,7 +13,7 @@ export class DeparturesComponent implements OnInit {
 
   mySidebar:any = null;
   menu:boolean = false;
-  results:number = 10;
+  results:number = 5;
   private arrival_cache:ObjectSkyalps[] = [];
   private departure_cache:ObjectSkyalps[] = [];
   arrival:ObjectSkyalps[] = [];
