@@ -24,14 +24,12 @@ export class MapComponent implements OnInit, OnDestroy {
   menu:boolean = false;
   // map declaration
   private map!: L.Map;
-  airplaneIcon = L.icon({
-    iconUrl: '/assets/planes/icons/3.png',
-    iconSize: [32, 32],
-  });
 
   // plane array
   public planes:Array<MapPlane> = [];
-  public planesMarker:Array<L.Marker> = [];
+  public planesMarker: Record<string, L.Marker> = {};
+
+  // public planesMarker:Array<L.Marker> = [];
   // constructor
   constructor(private webSocketService: WebSocketService, public authService:AuthenticationService) {}
 
@@ -61,7 +59,19 @@ export class MapComponent implements OnInit, OnDestroy {
             this.planes[planeIndex].height = resp["Alt"];
             this.planes[planeIndex].track = resp["Track"];
             this.planes[planeIndex].positions.push(new MapPlanePosition(resp["Lat"], resp["Lng"]));
-            this.planesMarker[planeIndex].setLatLng([resp["Lat"], resp["Lng"]]);
+            // update marker with track and
+            this.planesMarker[resp["Tail"]].remove();
+            delete this.planesMarker[resp["Tail"]];
+            // this.planesMarker[resp["Tail"]].setLatLng([resp["Lat"], resp["Lng"]]);
+            let url:string = '/assets/planes/icons/' + resp["Emitter_category"]+".png";
+            let markerOptions:RotatedMarkerOptions = {
+              icon: L.icon({ iconUrl: url }),
+              rotationAngle: resp["Track"],
+            }
+            let newmarker = L.marker([resp["Lat"], resp["Lng"]], markerOptions)
+              .bindTooltip(resp["Tail"] + "<br/>" + (resp["Speed"] * 1.852).toFixed(2) + " km/h" + "<br/>" + (resp["Alt"] * 0.000305).toFixed(2) + " km",
+              ).addTo(this.map);
+            this.planesMarker[resp["Tail"]] = newmarker;
           }
         }
         else {
@@ -71,11 +81,13 @@ export class MapComponent implements OnInit, OnDestroy {
             resp["Speed"], resp["Alt"], resp["Track"], [new MapPlanePosition(resp["Lat"], resp["Lng"])]));
           let url:string = '/assets/planes/icons/' + resp["Emitter_category"]+".png";
           let markerOptions:RotatedMarkerOptions = {
-            icon: L.icon({ iconUrl: url }),
-            rotationAngle: 45
+            icon: L.icon({ iconUrl: url, iconSize: [32,32] }),
+            rotationAngle: resp["Track"]
           }
-          let newmarker = L.marker([46.4993342, 11.3546343], markerOptions).addTo(this.map);
-          this.planesMarker.push(newmarker);
+          let newmarker = L.marker([resp["Lat"], resp["Lng"]], markerOptions)
+          .bindTooltip(resp["Tail"] + "<br/>" + (resp["Speed"] * 1.852).toFixed(2) + " km/h" + "<br/>" + (resp["Alt"] * 0.000305).toFixed(2) + " km",
+          ).addTo(this.map);
+          this.planesMarker[resp["Tail"]] = newmarker;
           console.log("added");
           console.log(this.planes);
         }
@@ -93,8 +105,9 @@ export class MapComponent implements OnInit, OnDestroy {
         // if timestamp is older than 10s
         if (current - planes[i].timestamp > 10000) {
           // remove plane
+          this.planesMarker[this.planes[i].flightcode].remove();
+          delete this.planesMarker[this.planes[i].flightcode];
           this.planes.splice(i, 1);
-          this.planesMarker[i].remove();
           console.log("removed");
           console.log(planes);
         }
