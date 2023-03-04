@@ -1,0 +1,70 @@
+.icon  {
+  height: 25px;
+  align-self: center;
+}
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}
+
+
+
+.headerblock {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+
+//
+
+.terminal-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+}
+
+.terminal-table th,
+.terminal-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.terminal-table th {
+  background-color: #333;
+  color: #fff;
+}
+
+.terminal-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.yellow {
+  background-color: #FFD700;
+  color: black;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.select {
+  width: 200px;
+  border: 1px black solid;
+}
+
+.buttondiv {
+  position: fixed;
+  bottom: 55px;
+  right: 55px;
+}
+
+.try_button {
+  border-radius: 1px;
+  border: solid 1px black;
+}

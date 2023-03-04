@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { MapPlanePosition } from './../_models/map.plane.position';
 import { MapPlane } from './../_models/map.plane';
 import { AuthenticationService } from './../_services/authentication.service';
@@ -32,7 +33,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
   // public planesMarker:Array<L.Marker> = [];
   // constructor
-  constructor(private webSocketService: WebSocketService, public authService:AuthenticationService) {}
+  constructor(private webSocketService: WebSocketService, public authService:AuthenticationService, private router:Router) {}
 
 
   ngOnInit(): void {
@@ -72,14 +73,19 @@ export class MapComponent implements OnInit, OnDestroy {
             let newmarker = L.marker([resp["Lat"], resp["Lng"]], markerOptions)
               .bindTooltip(resp["Tail"] + "<br/>" + (resp["Speed"] * 1.852).toFixed(2) + " km/h" + "<br/>" + (resp["Alt"] * 0.000305).toFixed(2) + " km",
               ).addTo(this.map);
+            let urlparam:string = resp["Tail"];
+            urlparam = urlparam.replaceAll(" ", "");
+            newmarker.on('click', () => {
+              this.router.navigate(['/flight', urlparam]);
+            });
             this.planesMarker[resp["Tail"]] = newmarker;
             // lines marker update
-            if (this.linesMarker[resp["Tail"]]) {
-              this.map.removeLayer(this.linesMarker[resp["Tail"]]);
+            // if (this.linesMarker[resp["Tail"]]) {
+            //   this.map.removeLayer(this.linesMarker[resp["Tail"]]);
               // this.linesMarker[resp["Tail"]].remove();
-              delete this.linesMarker[resp["Tail"]];
-              console.log("exists");
-            }
+            //   delete this.linesMarker[resp["Tail"]];
+            //   console.log("exists");
+            // }
             // const latLngs = this.planes[planeIndex].positions.map(position => L.latLng(position.latitude, position.longitude));
             // this.linesMarker[resp["Tail"]] = L.polyline(latLngs, {color: 'blue'}).addTo(this.map);
           }
@@ -97,6 +103,11 @@ export class MapComponent implements OnInit, OnDestroy {
           let newmarker = L.marker([resp["Lat"], resp["Lng"]], markerOptions)
           .bindTooltip(resp["Tail"] + "<br/>" + (resp["Speed"] * 1.852).toFixed(2) + " km/h" + "<br/>" + (resp["Alt"] * 0.000305).toFixed(2) + " km",
           ).addTo(this.map);
+          let urlparam = resp["Tail"];
+          urlparam = urlparam.replace(" ", "");
+          newmarker.on('click', () => {
+            this.router.navigate(['/flight', urlparam]);
+          });
           this.planesMarker[resp["Tail"]] = newmarker;
           // const latLngs = this.planes[resp["Tail"]].positions.map(position => L.latLng(position.latitude, position.longitude));
           // let linemarker = L.polyline(latLngs, {color: 'blue'}).addTo(this.map);

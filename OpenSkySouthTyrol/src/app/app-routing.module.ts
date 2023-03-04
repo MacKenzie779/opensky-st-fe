@@ -1,3 +1,4 @@
+import { RealtimeComponent } from './realtime/realtime.component';
 import { MapComponent } from './map/map.component';
 import { HistoricDeparturesComponent } from './historic-departures/historic-departures.component';
 import { DeparturesComponent } from './departures/departures.component';
@@ -12,6 +13,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { AuthGuard } from './_helpers';
+import { FlightComponent } from './flight/flight.component';
 
 const routes: Routes = [
   { path: "home", component: HomeComponent },
@@ -23,7 +25,8 @@ const routes: Routes = [
   { path: "logout", component: LogoutComponent, canActivate: [AuthGuard] },
   { path: "changepwd", component: ChangePasswordComponent, canActivate: [AuthGuard] },
   { path: "departure", component: DeparturesComponent, canActivate: [AuthGuard] },
-  { path: "realtime", component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: "realtime", component: RealtimeComponent, canActivate: [AuthGuard] },
+  { path: "flight/:id", component: FlightComponent, canActivate: [AuthGuard] },
   { path: "departure/history", component: HistoricDeparturesComponent, canActivate: [AuthGuard] },
   { path: "map", component: MapComponent, canActivate: [AuthGuard] },
   { path: "**", redirectTo: "/home", pathMatch: "full" }

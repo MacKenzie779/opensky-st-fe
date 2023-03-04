@@ -1,4 +1,3 @@
-import { ObjectSkyalpsRawdata } from './../_models/object_skyalps_rawdata';
 import { SkyalpsService } from './../_services/skyalps.service';
 import { AuthenticationService } from './../_services/authentication.service';
 import { Component, OnInit } from '@angular/core';
