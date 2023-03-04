@@ -28,6 +28,7 @@ export class MapComponent implements OnInit, OnDestroy {
   // plane array
   public planes:Array<MapPlane> = [];
   public planesMarker: Record<string, L.Marker> = {};
+  public linesMarker: Record<string, L.Polyline> = {};
 
   // public planesMarker:Array<L.Marker> = [];
   // constructor
@@ -72,6 +73,15 @@ export class MapComponent implements OnInit, OnDestroy {
               .bindTooltip(resp["Tail"] + "<br/>" + (resp["Speed"] * 1.852).toFixed(2) + " km/h" + "<br/>" + (resp["Alt"] * 0.000305).toFixed(2) + " km",
               ).addTo(this.map);
             this.planesMarker[resp["Tail"]] = newmarker;
+            // lines marker update
+            if (this.linesMarker[resp["Tail"]]) {
+              this.map.removeLayer(this.linesMarker[resp["Tail"]]);
+              // this.linesMarker[resp["Tail"]].remove();
+              delete this.linesMarker[resp["Tail"]];
+              console.log("exists");
+            }
+            // const latLngs = this.planes[planeIndex].positions.map(position => L.latLng(position.latitude, position.longitude));
+            // this.linesMarker[resp["Tail"]] = L.polyline(latLngs, {color: 'blue'}).addTo(this.map);
           }
         }
         else {
@@ -88,6 +98,9 @@ export class MapComponent implements OnInit, OnDestroy {
           .bindTooltip(resp["Tail"] + "<br/>" + (resp["Speed"] * 1.852).toFixed(2) + " km/h" + "<br/>" + (resp["Alt"] * 0.000305).toFixed(2) + " km",
           ).addTo(this.map);
           this.planesMarker[resp["Tail"]] = newmarker;
+          // const latLngs = this.planes[resp["Tail"]].positions.map(position => L.latLng(position.latitude, position.longitude));
+          // let linemarker = L.polyline(latLngs, {color: 'blue'}).addTo(this.map);
+          // this.linesMarker[resp["Tail"]] = linemarker;
           console.log("added");
           console.log(this.planes);
         }
@@ -103,8 +116,10 @@ export class MapComponent implements OnInit, OnDestroy {
       // for each plane
       for (let i = 0; i < planes.length; i++) {
         // if timestamp is older than 10s
-        if (current - planes[i].timestamp > 10000) {
+        if (current - planes[i].timestamp > 20000) {
           // remove plane
+          // this.map.removeLayer(this.linesMarker[this.planes[i].flightcode]);
+          // delete this.linesMarker[this.planes[i].flightcode];
           this.planesMarker[this.planes[i].flightcode].remove();
           delete this.planesMarker[this.planes[i].flightcode];
           this.planes.splice(i, 1);
