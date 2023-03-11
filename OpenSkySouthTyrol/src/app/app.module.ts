@@ -32,6 +32,7 @@ import { HistoricDeparturesComponent } from './historic-departures/historic-depa
 import { MapComponent } from './map/map.component';
 import { RealtimeComponent } from './realtime/realtime.component';
 import { FlightComponent } from './flight/flight.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { FlightComponent } from './flight/flight.component';
     HistoricDeparturesComponent,
     MapComponent,
     RealtimeComponent,
-    FlightComponent
+    FlightComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

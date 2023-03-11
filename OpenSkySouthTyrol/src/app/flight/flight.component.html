@@ -1,1 +1,202 @@
-<p>flight works!</p>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>OpenSky</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+      body, html {
+        height: 100%;
+        line-height: 1.8;
+      }
+
+      /* Full height image header */
+      .bgimg-1 {
+        /* background-position: center;
+        background-size: cover;
+        background-image: url("./assets/plane3.jpg"); */
+        /* background-color: black; */
+        min-height: 100%;
+      }
+
+      .w3-bar .w3-button {
+        padding: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (sit on top) -->
+    <div class="w3-top">
+      <div class="w3-bar w3-white w3-card" id="myNavbar">
+        <a [routerLink]="['/dashboard']" class="w3-bar-item w3-button w3-wide"><img class="icon" src="./assets/favicon.ico"><b> OpenSky</b></a>
+        <a [routerLink]="['/departure']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"><i class="fa-solid fa-plane-departure"></i> ARRIVAL/DEPARTURES</a>
+        <a [routerLink]="['/map']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"><i class="fa-solid fa-map-location-dot"></i> MAP</a>
+        <a [routerLink]="['/realtime']" routerLinkActive="active_route" class="w3-bar-item w3-button w3-hide-small"><i class="fa-solid fa-clock"></i> REALTIME</a>
+        <!-- Right-sided navbar links -->
+        <div class="w3-right w3-hide-small">
+          <a class="w3-bar-item w3-button" (click)="toggleMenu()" ><i class="fa fa-user"></i> {{authService.currentUserValue.username}}</a>
+          <div *ngIf="menu" class="w3-dropdown-content w3-bar-block w3-card-4 w3-show" style="right: 0; top: 59px;">
+            <a (click)="toggleMenu()" [routerLink]="['/changepwd']" class="w3-bar-item w3-button"><i class="fa-solid fa-key"></i> CHANGE PASSWORD</a>
+            <a (click)="toggleMenu()" [routerLink]="['/logout']" class="w3-bar-item w3-button"><i class="fa-solid fa-right-from-bracket"></i> LOGOUT</a>
+          </div>
+        </div>
+        <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" (click)="open_sidebar()">
+          <i class="fa fa-bars"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Sidebar on small screens when clicking the menu icon -->
+    <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-right w3-hide-medium w3-hide-large" style="display:none; right:0" id="mySidebar">
+      <a href="javascript:void(0)" (click)="close_sidebar()" class="w3-bar-item w3-button w3-large w3-padding-16" style="color:red;"><i class="fa fa-close"></i></a>
+      <a [routerLink]="['/departure']" (click)="close_sidebar()" class="w3-bar-item w3-button">ARRIVAL/DEPARTURES</a>
+      <a [routerLink]="['/map']" (click)="close_sidebar()" class="w3-bar-item w3-button">MAP</a>
+      <a [routerLink]="['/realtime']" (click)="close_sidebar()" class="w3-bar-item w3-button">REALTIME</a>
+      <a [routerLink]="['/changepwd']" (click)="close_sidebar()" class="w3-bar-item w3-button">CHANGE PASSWORD</a>
+      <a [routerLink]="['/logout']" (click)="close_sidebar()" class="w3-bar-item w3-button">LOGOUT</a>
+    </nav>
+
+    <!-- Header with full-height image -->
+    <header class="bgimg-1 w3-display-container w3-grayscale-min w3-light-grey" id="home">
+      <div class="w3-container" style="padding:80px 16px; padding-bottom: 0px;" id="about">
+        <div class="container">
+          <div class="image">
+            <img [src]="imgUrl" alt="Airplane">
+          </div>
+          <div class="info">
+            <h2>Flight Profile</h2>
+            <table>
+              <tr>
+                <th>Flight Number</th>
+                <td>ABC123</td>
+              </tr>
+              <tr>
+                <th>Departure Airport</th>
+                <td>JFK</td>
+              </tr>
+              <tr>
+                <th>Arrival Airport</th>
+                <td>LAX</td>
+              </tr>
+              <tr>
+                <th>Departure Time</th>
+                <td>12:00 PM</td>
+              </tr>
+              <tr>
+                <th>Arrival Time</th>
+                <td>3:00 PM</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="buttondiv">
+      <button class="w3-button w3-white w3-large try_button" [routerLink]="['/departure/history']" >Historic flights <i class="fa-solid fa-arrow-right"></i></button>
+    </div>
+  </body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title>Flight Profile</title>
+	<style type="text/css">
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			justify-content: center;
+			margin: 20px;
+		}
+
+		.image {
+			flex: 1 1 300px;
+			max-width: 100%;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.image img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.info {
+			flex: 1 1 400px;
+			max-width: 100%;
+			padding: 20px;
+			box-sizing: border-box;
+		}
+
+		.info h2 {
+			margin-top: 0;
+		}
+
+		table {
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		th, td {
+			text-align: left;
+			padding: 8px;
+			border-bottom: 1px solid #ddd;
+		}
+
+		th {
+			background-color: #f2f2f2;
+			color: #333;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="image">
+			<img [src]="imgUrl" alt="Airplane">
+		</div>
+		<div class="info">
+			<h2>Flight Profile</h2>
+			<table>
+				<tr>
+					<th>Flight Number</th>
+					<td>ABC123</td>
+				</tr>
+				<tr>
+					<th>Departure Airport</th>
+					<td>JFK</td>
+				</tr>
+				<tr>
+					<th>Arrival Airport</th>
+					<td>LAX</td>
+				</tr>
+				<tr>
+					<th>Departure Time</th>
+					<td>12:00 PM</td>
+				</tr>
+				<tr>
+					<th>Arrival Time</th>
+					<td>3:00 PM</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html> -->

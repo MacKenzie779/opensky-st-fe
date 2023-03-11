@@ -1,0 +1,119 @@
+.icon  {
+  height: 25px;
+  align-self: center;
+}
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}
+
+
+
+.headerblock {
+  margin-top: 100px;
+  margin-left: 50px;
+  margin-bottom: 100px;
+}
+
+
+//
+
+.terminal-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+}
+
+.terminal-table th,
+.terminal-table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.terminal-table th {
+  background-color: #333;
+  color: #fff;
+}
+
+.terminal-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.yellow {
+  background-color: #FFD700;
+  color: black;
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.select {
+  width: 200px;
+  border: 1px black solid;
+}
+
+.buttondiv {
+  position: fixed;
+  bottom: 55px;
+  right: 55px;
+}
+
+.try_button {
+  border-radius: 1px;
+  border: solid 1px black;
+}
+
+// -----------------------------
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.image {
+  flex: 1 1 300px;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.info {
+  flex: 1 1 400px;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.info h2 {
+  margin-top: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}

@@ -1,3 +1,4 @@
+import { UrlService } from './../_services/url.service';
 import { Router } from '@angular/router';
 import { MapPlanePosition } from './../_models/map.plane.position';
 import { MapPlane } from './../_models/map.plane';
@@ -33,7 +34,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
   // public planesMarker:Array<L.Marker> = [];
   // constructor
-  constructor(private webSocketService: WebSocketService, public authService:AuthenticationService, private router:Router) {}
+  constructor(private webSocketService: WebSocketService, public authService:AuthenticationService, private router:Router, private us:UrlService) {}
 
 
   ngOnInit(): void {

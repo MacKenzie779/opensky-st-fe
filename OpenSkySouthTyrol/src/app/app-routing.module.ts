@@ -1,3 +1,4 @@
+import { NotFoundComponent } from './not-found/not-found.component';
 import { RealtimeComponent } from './realtime/realtime.component';
 import { MapComponent } from './map/map.component';
 import { HistoricDeparturesComponent } from './historic-departures/historic-departures.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: "changepwd", component: ChangePasswordComponent, canActivate: [AuthGuard] },
   { path: "departure", component: DeparturesComponent, canActivate: [AuthGuard] },
   { path: "realtime", component: RealtimeComponent, canActivate: [AuthGuard] },
-  { path: "flight/:id", component: FlightComponent, canActivate: [AuthGuard] },
+  { path: "flight/:code", component: FlightComponent, canActivate: [AuthGuard] },
+  { path: "404/:redirect", component: NotFoundComponent },
   { path: "departure/history", component: HistoricDeparturesComponent, canActivate: [AuthGuard] },
   { path: "map", component: MapComponent, canActivate: [AuthGuard] },
   { path: "**", redirectTo: "/home", pathMatch: "full" }

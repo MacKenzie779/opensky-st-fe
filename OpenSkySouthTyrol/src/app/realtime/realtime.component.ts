@@ -1,7 +1,7 @@
 import { MapPlane } from './../_models/map.plane';
 import { WebSocketService } from '@app/_services/web-socket.service';
 import { AuthenticationService } from './../_services/authentication.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MapPlanePosition } from '@app/_models/map.plane.position';
 
 @Component({
@@ -9,7 +9,7 @@ import { MapPlanePosition } from '@app/_models/map.plane.position';
   templateUrl: './realtime.component.html',
   styleUrls: ['./realtime.component.scss']
 })
-export class RealtimeComponent implements OnInit {
+export class RealtimeComponent implements OnInit, OnDestroy {
 
   // subscription of ws, to unsubscribe on destroy
   subscription:any;
@@ -49,6 +49,11 @@ export class RealtimeComponent implements OnInit {
         }
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    // this.subscription.unsubscribe();
+    this.ws.close();
   }
 
   toggleMenu() {

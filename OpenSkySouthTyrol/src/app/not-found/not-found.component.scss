@@ -1,0 +1,24 @@
+.icon  {
+  height: 25px;
+  align-self: center;
+}
+
+.active_route {
+  background-color: lightgray;
+}
+
+.active_route_mobile {
+  background-color: lightgray;
+  color: black;
+}
+
+.buttondiv {
+  position: fixed;
+  bottom: 55px;
+  left: 55px;
+}
+
+.try_button {
+  border-radius: 2px;
+  border: solid 3px black;
+}
