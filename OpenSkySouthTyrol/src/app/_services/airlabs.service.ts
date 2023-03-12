@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AirlabsService {
 
-  readonly API_KEY = "8bd5cfd7-139e-4911-87e5-3630b326f1da"
+  readonly API_KEY = "c842d8cd-5432-48e0-be1f-f23f54e1ef8f"
 
   constructor(private http:HttpClient) {}
 
@@ -27,7 +27,11 @@ export class AirlabsService {
     return this.http.get<any>("https://api.qwant.com/v3/search/images", {params:params});
   }
 
-  getAirports() {
+  getAirport(code:string) {
+    return this.http.get<any>("https://airlabs.co/api/v9/airports?api_key="+this.API_KEY+"&iata_code="+code);
   }
 
+  getAirline(code:string) {
+    return this.http.get<any>("https://airlabs.co/api/v9/airlines?api_key="+this.API_KEY+"&icao_code="+code);
+  }
 }

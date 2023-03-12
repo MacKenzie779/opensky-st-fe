@@ -61,7 +61,7 @@
 .buttondiv {
   position: fixed;
   bottom: 55px;
-  right: 55px;
+  left: 55px;
 }
 
 .try_button {
@@ -75,7 +75,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 20px;
+  // margin: 20px;
 }
 
 .image {
@@ -116,4 +116,13 @@ th {
   background-color: #f2f2f2;
   color: #333;
   font-weight: bold;
+}
+
+.map {
+  flex: 1 1 300px;
+  max-width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 650px;
+  margin-bottom: 20px;
 }

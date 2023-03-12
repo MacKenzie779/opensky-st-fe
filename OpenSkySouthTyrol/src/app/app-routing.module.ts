@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: "404/:redirect", component: NotFoundComponent },
   { path: "departure/history", component: HistoricDeparturesComponent, canActivate: [AuthGuard] },
   { path: "map", component: MapComponent, canActivate: [AuthGuard] },
-  { path: "**", redirectTo: "/home", pathMatch: "full" }
+  { path: "**", redirectTo: "/dashboard", pathMatch: "full" }
 ];
 
 @NgModule({

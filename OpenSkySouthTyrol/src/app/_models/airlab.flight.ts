@@ -25,6 +25,6 @@ export class AirlabFlight {
   ) {}
 
   public static empty() {
-    return new AirlabFlight("","","",0,"","","","",0,"","","","","",0,0,"",0,"","",0,0)
+    return new AirlabFlight("","","",0,"","","","",0,"","","","","",0,0,"",0,"","",0,0);
   }
 }

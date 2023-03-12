@@ -71,35 +71,116 @@
             <img [src]="imgUrl" alt="Airplane">
           </div>
           <div class="info">
-            <h2>Flight Profile</h2>
+            <h1>Flight {{flight.flight_icao}}</h1>
             <table>
               <tr>
-                <th>Flight Number</th>
-                <td>ABC123</td>
+                <th>Airline</th>
+                <td>{{airline.name}}</td>
               </tr>
               <tr>
-                <th>Departure Airport</th>
-                <td>JFK</td>
+                <th>Airline code</th>
+                <td>{{airline.icao_code}}</td>
               </tr>
               <tr>
-                <th>Arrival Airport</th>
-                <td>LAX</td>
+                <th>Flag</th>
+                <td>{{flight.flag}}</td>
               </tr>
               <tr>
-                <th>Departure Time</th>
-                <td>12:00 PM</td>
+                <th>Aircraft type</th>
+                <td>{{flight.aircraft_icao}}</td>
               </tr>
               <tr>
-                <th>Arrival Time</th>
-                <td>3:00 PM</td>
+                <th>Registration number</th>
+                <td>{{flight.reg_number}}</td>
+              </tr>
+              <tr>
+                <th>Squawk signal code</th>
+                <td>{{flight.squawk}}</td>
+              </tr>
+              <tr>
+                <th>Latitude</th>
+                <td>{{flight.lat}} °</td>
+              </tr>
+              <tr>
+                <th>Longitude</th>
+                <td>{{flight.lng}} °</td>
+              </tr>
+              <tr>
+                <th>Altitude</th>
+                <td>{{flight.alt}} m</td>
+              </tr>
+              <tr>
+                <th>Direction</th>
+                <td>{{flight.dir}} °</td>
+              </tr>
+              <tr>
+                <th>Horizontal speed</th>
+                <td>{{flight.speed}} km/h</td>
+              </tr>
+              <tr>
+                <th>Vertical speed</th>
+                <td>{{flight.v_speed}} km/h</td>
               </tr>
             </table>
           </div>
         </div>
+        <hr class="w3-border-bottom w3-border-thick">
+        <div class="container">
+          <div class="info">
+            <!-- <h1>Origin/Destination</h1> -->
+            <h1>Departure</h1>
+            <table>
+              <tr>
+                <th>Country</th>
+                <td>{{this.dep.country_code}}</td>
+              </tr>
+              <tr>
+                <th>Airport</th>
+                <td>{{this.dep.name}}</td>
+              </tr>
+              <tr>
+                <th>Airport code</th>
+                <td>{{this.dep.iata_code}}</td>
+              </tr>
+              <tr>
+                <th>Latitude</th>
+                <td>{{this.dep.lat}}</td>
+              </tr>
+              <tr>
+                <th>Longitude</th>
+                <td>{{this.dep.lng}}</td>
+              </tr>
+            </table>
+            <h1>Arrival</h1>
+            <table>
+              <tr>
+                <th>Country</th>
+                <td>{{this.arr.country_code}}</td>
+              </tr>
+              <tr>
+                <th>Airport</th>
+                <td>{{this.arr.name}}</td>
+              </tr>
+              <tr>
+                <th>Airport code</th>
+                <td>{{this.arr.iata_code}}</td>
+              </tr>
+              <tr>
+                <th>Latitude</th>
+                <td>{{this.arr.lat}}</td>
+              </tr>
+              <tr>
+                <th>Longitude</th>
+                <td>{{this.arr.lng}}</td>
+              </tr>
+            </table>
+          </div>
+          <div #map class="map"></div>
+        </div>
       </div>
     </header>
     <div class="buttondiv">
-      <button class="w3-button w3-white w3-large try_button" [routerLink]="['/departure/history']" >Historic flights <i class="fa-solid fa-arrow-right"></i></button>
+      <button class="w3-button w3-white w3-large try_button" (click)="back()" ><i class="fa-solid fa-arrow-left"></i> Back </button>
     </div>
   </body>
 </html>

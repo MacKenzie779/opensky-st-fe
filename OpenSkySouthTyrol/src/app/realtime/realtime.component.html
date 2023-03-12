@@ -85,7 +85,7 @@
           <tbody>
             <tr *ngFor="let flight of flights">
               <td>{{flight.timestamp | date: "H:mm:ss dd.MM.yyyy"}}</td>
-              <td> <a [routerLink]="'/flight/'+flight.flightcode">{{flight.flightcode}}</a></td>
+              <td> <a [routerLink]="'/flight/'+flight.flightcode.replaceAll(' ','')">{{flight.flightcode}}</a></td>
               <td>{{flight.type}}</td>
               <td>{{flight.speed}} km/h</td>
               <td>{{flight.height}} km</td>
