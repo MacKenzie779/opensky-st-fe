@@ -83,7 +83,7 @@
               </tr>
               <tr>
                 <th>Flag</th>
-                <td>{{flight.flag}}</td>
+                <td>{{flight.flag}} <mat-icon class="flag-icon"><span [ngClass]="['fi','fi-'+flight.flag.toLowerCase()]"></span></mat-icon></td>
               </tr>
               <tr>
                 <th>Aircraft type</th>
@@ -132,7 +132,10 @@
             <table>
               <tr>
                 <th>Country</th>
-                <td>{{this.dep.country_code}}</td>
+                <td>
+                  {{this.dep.country_code}}
+                  <mat-icon class="flag-icon"><span [ngClass]="['fi','fi-'+this.dep.country_code.toLowerCase()]"></span></mat-icon>
+                </td>
               </tr>
               <tr>
                 <th>Airport</th>
@@ -144,18 +147,21 @@
               </tr>
               <tr>
                 <th>Latitude</th>
-                <td>{{this.dep.lat}}</td>
+                <td>{{this.dep.lat}} °</td>
               </tr>
               <tr>
                 <th>Longitude</th>
-                <td>{{this.dep.lng}}</td>
+                <td>{{this.dep.lng}} °</td>
               </tr>
             </table>
             <h1>Arrival</h1>
             <table>
               <tr>
                 <th>Country</th>
-                <td>{{this.arr.country_code}}</td>
+                <td>
+                  {{this.arr.country_code}}
+                  <mat-icon class="flag-icon"><span [ngClass]="['fi','fi-'+this.arr.country_code.toLowerCase()]"></span></mat-icon>
+                </td>
               </tr>
               <tr>
                 <th>Airport</th>
@@ -167,11 +173,11 @@
               </tr>
               <tr>
                 <th>Latitude</th>
-                <td>{{this.arr.lat}}</td>
+                <td>{{this.arr.lat}} °</td>
               </tr>
               <tr>
                 <th>Longitude</th>
-                <td>{{this.arr.lng}}</td>
+                <td>{{this.arr.lng}} °</td>
               </tr>
             </table>
           </div>
