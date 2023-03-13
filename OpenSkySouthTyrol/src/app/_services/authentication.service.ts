@@ -53,6 +53,7 @@ export class AuthenticationService {
     return this.http.post<ApiResponse>(environment.apiUrl + "/createuser", body, {headers});
   }
 
+  // change pwd
   changepwd(username:string, oldpwd:string, newpwd:string) {
     return this.http.post<any>(`${environment.apiUrl}/user/chpwd`, { username, oldpwd, newpwd }).pipe(map(user => {
       return user;
