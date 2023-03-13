@@ -33,6 +33,7 @@ import { MapComponent } from './map/map.component';
 import { RealtimeComponent } from './realtime/realtime.component';
 import { FlightComponent } from './flight/flight.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 
 
 @NgModule({
@@ -71,7 +72,11 @@ import { NotFoundComponent } from './not-found/not-found.component';
     FormsModule
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {
+      provide: ErrorStateMatcher,
+      useClass: ShowOnDirtyErrorStateMatcher
+     }
   ],
   bootstrap: [AppComponent]
 })
