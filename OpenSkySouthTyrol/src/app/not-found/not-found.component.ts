@@ -1,3 +1,4 @@
+import { AuthenticationService } from '@app/_services/authentication.service';
 import { UrlService } from './../_services/url.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component } from '@angular/core';
@@ -8,11 +9,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent {
-  mySidebar:any = null;
 
-  constructor(private route:ActivatedRoute, private router:Router) { }
+  mySidebar:any = null;
+  menu:boolean = false;
+
+  constructor(private route:ActivatedRoute, private router:Router, public authService:AuthenticationService) { }
 
   ngOnInit(): void {
+  }
+
+  toggleMenu() {
+    this.menu = !this.menu;
   }
 
   open_sidebar(): void {
