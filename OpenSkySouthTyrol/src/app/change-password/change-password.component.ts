@@ -54,17 +54,16 @@ export class ChangePasswordComponent {
     this.loading = true;
     var user = this.authService.currentUserValue['username'];
     console.log(user);
-    this.authService.changepwd(this.authService.currentUserValue['username'], this.field['oldpwd'].value, this.loginForm.controls['newpwd'].value).pipe(first()).subscribe({
-      next: () => {
-        // get return url from route parameters or default to '/dashboard'
+    this.authService.changepwd(this.loginForm.controls['newpwd'].value).subscribe(resp => {
+      if (resp.response_code != 200) {
+        this.error = resp.payload;
+      }
+      else {
         this.isError = false;
         this.error = "Password changed succesfully!";
-        this.loginForm.reset();
-        this.router.navigate(['/convert']);
-      },
-      error: error => {
-        this.error = error;
-        this.loading = false;
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 3000);
       }
     });
   }

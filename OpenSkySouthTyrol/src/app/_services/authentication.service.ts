@@ -54,9 +54,11 @@ export class AuthenticationService {
   }
 
   // change pwd
-  changepwd(username:string, oldpwd:string, newpwd:string) {
-    return this.http.post<any>(`${environment.apiUrl}/user/chpwd`, { username, oldpwd, newpwd }).pipe(map(user => {
-      return user;
-    }));
+  changepwd(newpwd:string):Observable<ApiResponse> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded'
+    });
+    let body = "authkey=" + this.currentUserValue?.token + "&pass=" + newpwd;
+    return this.http.post<any>(`${environment.apiUrl}/changepass`, body, {headers});
   }
 }
