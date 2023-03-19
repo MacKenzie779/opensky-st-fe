@@ -102,8 +102,8 @@ export class FlightComponent implements OnInit, AfterViewInit {
       maxZoom: 18
     }).addTo(this.map);
 
-    this.startMarker = L.marker([this.dep.lat, this.dep.lng], { icon: L.icon({ iconUrl: '../../assets/airport_marker.png', iconSize: [40, 45] }) }).addTo(this.map);
-    this.stopMarker = L.marker([this.arr.lat, this.arr.lng], { icon: L.icon({ iconUrl: '../../assets/airport_marker.png', iconSize: [40, 45] }) }).addTo(this.map);
+    this.startMarker = L.marker([this.dep.lat, this.dep.lng], { icon: L.icon({ iconUrl: '../../assets/airport_marker.png', iconSize: [40, 45] }) }).bindTooltip(this.dep.country_code + "<br/>" + this.dep.name + "<br/>" + this.dep.iata_code).addTo(this.map);
+    this.stopMarker = L.marker([this.arr.lat, this.arr.lng], { icon: L.icon({ iconUrl: '../../assets/airport_marker.png', iconSize: [40, 45] }) }).bindTooltip(this.arr.country_code + "<br/>" + this.arr.name + "<br/>" + this.arr.iata_code).addTo(this.map);
 
     const latlngs = [[this.dep.lat, this.dep.lng], [this.arr.lat, this.arr.lng]];
     const latlngsObj = latlngs.map(latlng => L.latLng(latlng[0], latlng[1]));
