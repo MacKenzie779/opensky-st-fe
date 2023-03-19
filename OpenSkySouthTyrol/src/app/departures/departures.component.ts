@@ -24,6 +24,7 @@ export class DeparturesComponent implements OnInit {
   ngOnInit(): void {
     let arr;
     this.skyalps.getDataAsObjectArray().subscribe(data => {
+      console.log(data);
       arr = data;
       let sorted = arr.sort((a,b)=> {
         return new Date(a.rawdata.date+"T"+a.rawdata.time).getTime() - new Date(b.rawdata.date+"T"+b.rawdata.time).getTime();

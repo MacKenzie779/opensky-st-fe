@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { InfiniteTypeDeleteModule } from "ngx-sbz-type-delete";
 
 //components
 import { AppRoutingModule } from './app-routing.module';
@@ -69,7 +70,8 @@ import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/materi
     MatFormFieldModule,
     MatSelectModule,
     MatProgressBarModule,
-    FormsModule
+    FormsModule,
+    InfiniteTypeDeleteModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
