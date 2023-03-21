@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class AirlabsService {
 
-  readonly API_KEY = "c842d8cd-5432-48e0-be1f-f23f54e1ef8f"
+  readonly API_KEY = "9fc5680e-26ae-416f-a024-727956384b4e"
 
   constructor(private http:HttpClient) {}
 
